@@ -4,16 +4,19 @@ import solve.SolverStrategy;
 import stats.Stats;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.HashMap;
 import java.util.Iterator;
 
 public class Main {
 
        public static void main(String[] args) {
+           // Add solver strategies
            ArrayList<SolverStrategy> Solvers = new ArrayList();
            Solvers.add(new AllInterval());
            Solvers.add(new AllIntervalTable());
+
+           // Remove solvers that dont get enought disc space for big values
+           ArrayList avoidBigN = new ArrayList();
+           avoidBigN.add(AllIntervalTable.class);
 
         ArrayList<Stats> statistics = new ArrayList<>();
 
@@ -29,7 +32,7 @@ public class Main {
                SolverStrategy solver = iterator.next();
                System.out.println(solver.solve(8).toTable());
                System.out.println(solver.solve(10).toTable());
-               if(solver.getClass() != AllIntervalTable.class){
+               if(!avoidBigN.contains(solver.getClass())){
                    System.out.println(solver.solve(12).toTable());
                    System.out.println(solver.solve(13).toTable());
                }
