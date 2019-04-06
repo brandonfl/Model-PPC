@@ -27,13 +27,15 @@ public class Stats {
         return "Stats" + dictionary.toString();
     }
 
+
     public String toTable(){
-        return dictionary.get("name").toString() + "\t\t" +
-                dictionary.get("N").toString() + "\t\t" +
-                dictionary.get("time").toString() + "s\t\t" +
-                dictionary.get("solutions").toString() + "\t\t\t" +
-                dictionary.get("backtrack").toString() + "\t\t\t" +
-                dictionary.get("fails").toString();
+        return String.format("%20s %10s %5s %5s %20s %10s %20s %10s %20s",
+                dictionary.get("name").toString(), "|",
+                dictionary.get("N").toString(), "|",
+                dictionary.get("time").toString(), "|",
+                dictionary.get("solutions").toString(),"|",
+                dictionary.get("backtrack").toString(),"|",
+                dictionary.get("fails").toString());
     }
 
 }

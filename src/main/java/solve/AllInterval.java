@@ -8,11 +8,18 @@ import stats.Stats;
 
 import java.util.Dictionary;
 
-public class AllInterval {
+public class AllInterval implements SolverStrategy{
+    public String name;
 
-    public static final String name = "Fast AllInterval";
 
-    public static Stats solve(int N){
+    public AllInterval() {
+        this.name = "Fast AllInterval";
+
+    }
+
+
+
+    public Stats solve(int N){
         Model model = new Model(name + " of "+ N);
         IntVar[] S = model.intVarArray("s", N, 0, N - 1, false);
         IntVar[] V = model.intVarArray("V", N - 1, 1, N - 1, false);
@@ -27,15 +34,22 @@ public class AllInterval {
         solver.setSearch(Search.minDomLBSearch(S));
 
         solver.findAllSolutions();
-        solver.printStatistics();
-
-        return new Stats(name,N,solver.getSolutionCount(),solver.getTimeCount(),solver.getBackTrackCount(),solver.getFailCount());
+        //solver.printStatistics();
+        Stats stats = new Stats(name,N,solver.getSolutionCount(),solver.getTimeCount(),solver.getBackTrackCount(),solver.getFailCount());
+        return stats;
     }
 
+
+
     public static void main(String[] args) {
+        SolverStrategy solver = new AllInterval();
+
         int N = 13;
-        Stats stats = solve(N);
-        System.out.println("name\t\t\t\t\tN\tResolution time\t\tSolutions\t\tBacktracks\t\tFails");
+        Stats stats = solver.solve(N);
+
+        System.out.println(String.format("%20s %10s %5s %5s %20s %10s %20s %10s %20s", "Name", "|","N", "|", "Resolution time", "|","Solutions","|","Backtracks","|","Fails"));
+        System.out.println(String.format("%s", "----------------------------------------------------------------------------------------------------------------------------------------"));
+
         System.out.println(stats.toTable());
 
     }

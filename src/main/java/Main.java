@@ -1,4 +1,5 @@
 import solve.AllInterval;
+import solve.SolverStrategy;
 import stats.Stats;
 
 import java.util.ArrayList;
@@ -7,19 +8,26 @@ import java.util.Iterator;
 public class Main {
 
        public static void main(String[] args) {
+           ArrayList<SolverStrategy> Solvers = new ArrayList();
+           Solvers.add(new AllInterval());
+
+        ArrayList<Stats> statistics = new ArrayList<>();
+
         System.out.println("===============================================================================");
         System.out.println("Solving...\n");
+        System.out.println(String.format("%20s %10s %5s %5s %20s %10s %20s %10s %20s", "Name", "|","N", "|", "Resolution time", "|","Solutions","|","Backtracks","|","Fails"));
 
-           ArrayList<Stats> statistics = new ArrayList<>();
 
-           statistics.add(AllInterval.solve(13));
 
-           System.out.println("name\t\t\t\t\tN\tResolution time\t\tSolutions\t\tBacktracks\t\tFails");
-           
-           Iterator<Stats> iterator = statistics.iterator();
+        Iterator<SolverStrategy> iterator = Solvers.iterator();
            while (iterator.hasNext()){
-               Stats stats = iterator.next();
-               System.out.println(stats.toTable());
+               System.out.println(String.format("%s", "----------------------------------------------------------------------------------------------------------------------------------------"));
+               SolverStrategy solver = iterator.next();
+               System.out.println(solver.solve(8).toTable());
+               System.out.println(solver.solve(10).toTable());
+               System.out.println(solver.solve(12).toTable());
+               System.out.println(solver.solve(13).toTable());
+
            }
 
     }
