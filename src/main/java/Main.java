@@ -4,6 +4,8 @@ import solve.SolverStrategy;
 import stats.Stats;
 
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class Main {
@@ -27,8 +29,10 @@ public class Main {
                SolverStrategy solver = iterator.next();
                System.out.println(solver.solve(8).toTable());
                System.out.println(solver.solve(10).toTable());
-               System.out.println(solver.solve(12).toTable());
-               System.out.println(solver.solve(13).toTable());
+               if(solver.getClass() != AllIntervalTable.class){
+                   System.out.println(solver.solve(12).toTable());
+                   System.out.println(solver.solve(13).toTable());
+               }
 
            }
 
