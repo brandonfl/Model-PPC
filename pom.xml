@@ -86,6 +86,14 @@
 
     </build>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.choco-solver</groupId>
+            <artifactId>choco-solver</artifactId>
+            <version>4.10.0</version>
+        </dependency>
+    </dependencies>
+
 
 
 
