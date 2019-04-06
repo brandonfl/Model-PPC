@@ -1,4 +1,5 @@
 import solve.AllInterval;
+import solve.AllIntervalTable;
 import solve.SolverStrategy;
 import stats.Stats;
 
@@ -10,6 +11,7 @@ public class Main {
        public static void main(String[] args) {
            ArrayList<SolverStrategy> Solvers = new ArrayList();
            Solvers.add(new AllInterval());
+           Solvers.add(new AllIntervalTable());
 
         ArrayList<Stats> statistics = new ArrayList<>();
 
