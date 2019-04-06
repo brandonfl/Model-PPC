@@ -1,5 +1,6 @@
 import solve.AllInterval;
 import solve.AllIntervalTable;
+import solve.AllIntervalWithGT;
 import solve.SolverStrategy;
 import stats.Stats;
 
@@ -12,6 +13,7 @@ public class Main {
            // Add solver strategies
            ArrayList<SolverStrategy> Solvers = new ArrayList();
            Solvers.add(new AllInterval());
+           Solvers.add(new AllIntervalWithGT());
            Solvers.add(new AllIntervalTable());
 
            // Remove solvers that dont get enought disc space for big values

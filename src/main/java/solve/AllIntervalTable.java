@@ -12,7 +12,7 @@ public class AllIntervalTable implements SolverStrategy {
 
 
     public AllIntervalTable() {
-        this.name = "AllInterval Table";
+        this.name = "With Table";
 
     }
 
