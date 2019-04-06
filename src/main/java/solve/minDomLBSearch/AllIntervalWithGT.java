@@ -1,9 +1,10 @@
-package solve;
+package solve.minDomLBSearch;
 
 import org.chocosolver.solver.Model;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.search.strategy.Search;
 import org.chocosolver.solver.variables.IntVar;
+import solve.SolverStrategy;
 import stats.Stats;
 
 
@@ -13,7 +14,7 @@ public class AllIntervalWithGT implements SolverStrategy {
 
 
         public AllIntervalWithGT() {
-            this.name = "With Greater Than";
+            this.name = "MDLBS Greater Than";
 
         }
 
@@ -41,9 +42,12 @@ public class AllIntervalWithGT implements SolverStrategy {
             return stats;
         }
 
+    @Override
+    public String getName() {
+        return name;
+    }
 
-
-        public static void main(String[] args) {
+    public static void main(String[] args) {
             SolverStrategy solver = new AllIntervalWithGT();
 
             int N = 13;

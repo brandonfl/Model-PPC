@@ -1,6 +1,5 @@
-import solve.AllInterval;
-import solve.AllIntervalTable;
-import solve.AllIntervalWithGT;
+import solve.Default.AllInterval;
+import solve.minDomLBSearch.*;
 import solve.SolverStrategy;
 import stats.Stats;
 
@@ -12,13 +11,20 @@ public class Main {
        public static void main(String[] args) {
            // Add solver strategies
            ArrayList<SolverStrategy> Solvers = new ArrayList();
-           Solvers.add(new AllInterval());
-           Solvers.add(new AllIntervalWithGT());
-           Solvers.add(new AllIntervalTable());
+           // minDomLBSearch
+           Solvers.add(new solve.minDomLBSearch.AllInterval());
+           Solvers.add(new solve.minDomLBSearch.AllIntervalTable());
+           Solvers.add(new solve.minDomLBSearch.AllIntervalWithGT());
+
+           // default
+           Solvers.add(new solve.Default.AllInterval());
+           Solvers.add(new solve.Default.AllIntervalTable());
+           Solvers.add(new solve.Default.AllIntervalWithGT());
 
            // Remove solvers that dont get enought disc space for big values
            ArrayList avoidBigN = new ArrayList();
-           avoidBigN.add(AllIntervalTable.class);
+           avoidBigN.add(solve.minDomLBSearch.AllIntervalTable.class);
+           avoidBigN.add(solve.Default.AllIntervalTable.class);
 
         ArrayList<Stats> statistics = new ArrayList<>();
 
@@ -37,6 +43,9 @@ public class Main {
                if(!avoidBigN.contains(solver.getClass())){
                    System.out.println(solver.solve(12).toTable());
                    System.out.println(solver.solve(13).toTable());
+               }else{
+                   System.out.println(String.format("%20s %10s %5s %5s %20s %10s %20s %10s %20s",solver.getName() , "|",12, "|", "?", "|","?","|","?","|","?"));
+                   System.out.println(String.format("%20s %10s %5s %5s %20s %10s %20s %10s %20s",solver.getName() , "|",13, "|", "?", "|","?","|","?","|","?"));
                }
 
            }
