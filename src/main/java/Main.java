@@ -11,6 +11,12 @@ public class Main {
        public static void main(String[] args) {
            // Add solver strategies
            ArrayList<SolverStrategy> Solvers = new ArrayList();
+
+           // minDomUBSearch
+           Solvers.add(new solve.minDomUBSearch.AllInterval());
+           Solvers.add(new solve.minDomUBSearch.AllIntervalTable());
+           Solvers.add(new solve.minDomUBSearch.AllIntervalWithGT());
+
            // minDomLBSearch
            Solvers.add(new solve.minDomLBSearch.AllInterval());
            Solvers.add(new solve.minDomLBSearch.AllIntervalTable());
@@ -24,6 +30,7 @@ public class Main {
            // Remove solvers that dont get enought disc space for big values
            ArrayList avoidBigN = new ArrayList();
            avoidBigN.add(solve.minDomLBSearch.AllIntervalTable.class);
+           avoidBigN.add(solve.minDomUBSearch.AllIntervalTable.class);
            avoidBigN.add(solve.Default.AllIntervalTable.class);
 
         ArrayList<Stats> statistics = new ArrayList<>();
