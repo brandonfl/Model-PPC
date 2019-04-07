@@ -46,7 +46,7 @@ public class AllIntervalTable implements SolverStrategy {
         model.allDifferent(V).post();
 
         Solver solver = model.getSolver();
-        solver.setSearch(Search.minDomLBSearch(S));
+        solver.setSearch(Search.minDomUBSearch(S));
 
         solver.findAllSolutions();
         //solver.printStatistics();

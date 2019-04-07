@@ -34,7 +34,7 @@ public class AllIntervalWithGT implements SolverStrategy {
             V[1].gt(V[N - 2]).post();
 
             Solver solver = model.getSolver();
-            solver.setSearch(Search.minDomLBSearch(S));
+            solver.setSearch(Search.minDomUBSearch(S));
 
             solver.findAllSolutions();
             //solver.printStatistics();

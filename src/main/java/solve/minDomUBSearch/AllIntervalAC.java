@@ -31,7 +31,7 @@ public class AllIntervalAC implements SolverStrategy {
         model.allDifferent(V,"AC").post();
 
         Solver solver = model.getSolver();
-        solver.setSearch(Search.minDomLBSearch(S));
+        solver.setSearch(Search.minDomUBSearch(S));
 
         solver.findAllSolutions();
         //solver.printStatistics();
