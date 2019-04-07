@@ -6,7 +6,7 @@ import org.chocosolver.solver.constraints.extension.Tuples;
 import org.chocosolver.solver.search.strategy.Search;
 import org.chocosolver.solver.variables.IntVar;
 import solve.SolverStrategy;
-import stats.Stats;
+import utils.Stats;
 
 public class AllIntervalTable implements SolverStrategy {
     public String name;

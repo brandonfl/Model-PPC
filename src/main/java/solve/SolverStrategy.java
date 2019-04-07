@@ -1,6 +1,6 @@
 package solve;
 
-import stats.Stats;
+import utils.Stats;
 
 public interface SolverStrategy {
     Stats solve(int N);

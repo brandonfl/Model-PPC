@@ -5,7 +5,7 @@ import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.search.strategy.Search;
 import org.chocosolver.solver.variables.IntVar;
 import solve.SolverStrategy;
-import stats.Stats;
+import utils.Stats;
 
 
 public class AllInterval implements SolverStrategy {

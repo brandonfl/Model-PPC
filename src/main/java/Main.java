@@ -1,7 +1,5 @@
-import solve.Default.AllInterval;
-import solve.minDomLBSearch.*;
 import solve.SolverStrategy;
-import stats.Stats;
+import utils.Stats;
 
 import java.util.ArrayList;
 import java.util.Iterator;
