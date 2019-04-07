@@ -48,6 +48,7 @@ public class Main {
                System.out.println(solver.solve(10).toTable());
                System.out.println(solver.solve(12).toTable());
                System.out.println(solver.solve(13).toTable());
+               System.out.println(solver.solve(14).toTable());
 
 
            }
