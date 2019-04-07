@@ -43,6 +43,7 @@ public class AllIntervalTable implements SolverStrategy {
         }
 
         model.allDifferent(S).post();
+        model.allDifferent(V).post();
 
         Solver solver = model.getSolver();
         solver.setSearch(Search.minDomLBSearch(S));
@@ -63,7 +64,7 @@ public class AllIntervalTable implements SolverStrategy {
     public static void main(String[] args) {
         SolverStrategy solver = new AllIntervalTable();
 
-        int N = 12;
+        int N = 8;
         Stats stats = solver.solve(N);
 
         System.out.println(String.format("%20s %10s %5s %5s %20s %10s %20s %10s %20s", "Name", "|","N", "|", "Resolution time", "|","Solutions","|","Backtracks","|","Fails"));

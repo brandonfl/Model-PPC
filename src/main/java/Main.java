@@ -27,11 +27,6 @@ public class Main {
            Solvers.add(new solve.Default.AllIntervalTable());
            Solvers.add(new solve.Default.AllIntervalWithGT());
 
-           // Remove solvers that dont get enought disc space for big values
-           ArrayList avoidBigN = new ArrayList();
-           avoidBigN.add(solve.minDomLBSearch.AllIntervalTable.class);
-           avoidBigN.add(solve.minDomUBSearch.AllIntervalTable.class);
-           avoidBigN.add(solve.Default.AllIntervalTable.class);
 
         ArrayList<Stats> statistics = new ArrayList<>();
 
@@ -47,13 +42,9 @@ public class Main {
                SolverStrategy solver = iterator.next();
                System.out.println(solver.solve(8).toTable());
                System.out.println(solver.solve(10).toTable());
-               if(!avoidBigN.contains(solver.getClass())){
-                   System.out.println(solver.solve(12).toTable());
-                   System.out.println(solver.solve(13).toTable());
-               }else{
-                   System.out.println(String.format("%20s %10s %5s %5s %20s %10s %20s %10s %20s",solver.getName() , "|",12, "|", "?", "|","?","|","?","|","?"));
-                   System.out.println(String.format("%20s %10s %5s %5s %20s %10s %20s %10s %20s",solver.getName() , "|",13, "|", "?", "|","?","|","?","|","?"));
-               }
+               System.out.println(solver.solve(12).toTable());
+               System.out.println(solver.solve(13).toTable());
+              
 
            }
            System.out.println("\n");

@@ -43,6 +43,7 @@ public class AllIntervalTable implements SolverStrategy {
         }
 
         model.allDifferent(S).post();
+        model.allDifferent(V).post();
 
         Solver solver = model.getSolver();
         solver.setSearch(Search.defaultSearch(model));
