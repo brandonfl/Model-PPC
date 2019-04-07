@@ -15,6 +15,8 @@ public class Main {
            Solvers.add(new solve.minDomUBSearch.AllIntervalAC());
            Solvers.add(new solve.minDomUBSearch.AllIntervalBC());
            Solvers.add(new solve.minDomUBSearch.AllIntervalTable());
+           Solvers.add(new solve.minDomUBSearch.AllIntervalTableAC());
+           Solvers.add(new solve.minDomUBSearch.AllIntervalTableBC());
            Solvers.add(new solve.minDomUBSearch.AllIntervalWithGT());
 
            // minDomLBSearch
@@ -22,6 +24,8 @@ public class Main {
            Solvers.add(new solve.minDomLBSearch.AllIntervalAC());
            Solvers.add(new solve.minDomLBSearch.AllIntervalBC());
            Solvers.add(new solve.minDomLBSearch.AllIntervalTable());
+           Solvers.add(new solve.minDomLBSearch.AllIntervalTableAC());
+           Solvers.add(new solve.minDomLBSearch.AllIntervalTableBC());
            Solvers.add(new solve.minDomLBSearch.AllIntervalWithGT());
 
            // default
@@ -29,6 +33,8 @@ public class Main {
            Solvers.add(new solve.Default.AllIntervalAC());
            Solvers.add(new solve.Default.AllIntervalBC());
            Solvers.add(new solve.Default.AllIntervalTable());
+           Solvers.add(new solve.Default.AllIntervalTableAC());
+           Solvers.add(new solve.Default.AllIntervalTableBC());
            Solvers.add(new solve.Default.AllIntervalWithGT());
 
 
